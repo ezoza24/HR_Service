@@ -11,4 +11,5 @@ public class PayrollReportDto
     public decimal Deductions { get; set; }
     public decimal NetPay { get; set; }
     public DateTime CreatedAt { get; set; }
+  
 }

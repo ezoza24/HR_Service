@@ -16,7 +16,9 @@ public sealed class AnomalyMapDto: ClassMap<SalaryAnomalyDto>
 
         Map(m => m.ExpectedAmount).Name("Expected Amount").TypeConverterOption.Format("C");
         Map(m => m.ActualAmount).Name("Actual Amount").TypeConverterOption.Format("C");
-        Map(m => m.DeviationPercent).Name("Deviation (%)").TypeConverterOption.Format("0.00%");
+        Map(m => m.DeviationPercent)
+            .Name("Deviation (%)")
+            .Convert(row => $"{row.Value.DeviationPercent:0.00}%");
         
         Map(m => m.IsReviewed)
             .Name("Review Status")
@@ -26,3 +28,4 @@ public sealed class AnomalyMapDto: ClassMap<SalaryAnomalyDto>
     }
 
 }
+
